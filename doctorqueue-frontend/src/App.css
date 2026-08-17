@@ -1,0 +1,882 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+
+  background: #f4f7fb;
+  color: #172033;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+.auth-container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #eef4ff 0%,
+                  #f8fbff 50%,
+                  #edf7f4 100%
+          );
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+
+  background: white;
+
+  padding: 36px;
+
+  border-radius: 20px;
+
+  box-shadow:
+          0 20px 50px rgba(30, 50, 90, 0.12);
+
+  border: 1px solid #e6eaf0;
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  color: #172033;
+}
+
+.auth-card h2 {
+  margin: 0 0 28px;
+
+  text-align: center;
+
+  font-size: 22px;
+
+  color: #4b5563;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.auth-card label {
+  margin-top: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d7dce5;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #172033;
+
+  outline: none;
+
+  transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+          0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.auth-card p {
+  margin: 22px 0 10px;
+
+  text-align: center;
+
+  color: #6b7280;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.next-button,
+.secondary-button,
+.cancel-button,
+.complete-button {
+  border: none;
+
+  border-radius: 9px;
+
+  padding: 13px 18px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  transition:
+          transform 0.15s,
+          opacity 0.15s,
+          background 0.15s;
+}
+
+.next-button:hover,
+.secondary-button:hover,
+.cancel-button:hover,
+.complete-button:hover {
+  transform: translateY(-1px);
+}
+
+.next-button:disabled,
+.secondary-button:disabled,
+.cancel-button:disabled,
+.complete-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.auth-card .next-button {
+  width: 100%;
+
+  margin-top: 16px;
+
+  background: #2563eb;
+
+  color: white;
+}
+
+.secondary-button {
+  width: 100%;
+
+  background: #eef2ff;
+
+  color: #2563eb;
+}
+
+.cancel-button {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+.complete-button {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+  margin-top: 16px;
+
+  padding: 12px 14px;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+
+  border: 1px solid #bfdbfe;
+
+  color: #1d4ed8;
+
+  font-size: 14px;
+}
+
+.message.error {
+  background: #fef2f2;
+
+  border-color: #fecaca;
+
+  color: #b91c1c;
+}
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  background: #f4f7fb;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 32px;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+}
+
+.header h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+.switch {
+  display: flex;
+
+  gap: 8px;
+
+  align-items: center;
+}
+
+.switch button {
+  border: 1px solid #d9dee8;
+
+  background: white;
+
+  color: #4b5563;
+
+  padding: 9px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.switch button.active {
+  background: #2563eb;
+
+  color: white;
+
+  border-color: #2563eb;
+}
+
+.switch button:last-child {
+  background: #111827;
+
+  color: white;
+
+  border-color: #111827;
+}
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard {
+  width: 100%;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 40px 24px 80px;
+}
+
+.dashboard h1 {
+  margin: 0 0 25px;
+
+  font-size: 30px;
+}
+
+.dashboard h2 {
+  margin: 8px 0;
+
+  font-size: 24px;
+}
+
+.loading {
+  padding: 40px;
+
+  text-align: center;
+
+  color: #6b7280;
+}
+
+/* =========================================================
+   JOIN FORM
+========================================================= */
+
+.join-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  padding: 28px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+          0 10px 30px rgba(30, 50, 90, 0.06);
+}
+
+.join-form label {
+  margin-top: 8px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.join-form input,
+.join-form select {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 9px;
+
+  background: white;
+}
+
+.join-form .next-button {
+  margin-top: 15px;
+
+  background: #2563eb;
+
+  color: white;
+}
+
+/* =========================================================
+   SELECTED DOCTOR
+========================================================= */
+
+.selected-doctor {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 16px;
+
+  margin: 8px 0;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  border: 1px solid #bfdbfe;
+}
+
+.selected-doctor strong {
+  color: #1e40af;
+}
+
+.selected-doctor span {
+  font-size: 14px;
+
+  color: #4b5563;
+}
+
+/* =========================================================
+   TOKEN CARD
+========================================================= */
+
+.token-card {
+  text-align: center;
+
+  padding: 35px;
+
+  margin-bottom: 20px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  border: 1px solid #e5e7eb;
+}
+
+.token-label {
+  font-size: 13px;
+
+  font-weight: 800;
+
+  color: #6b7280;
+
+  letter-spacing: 1px;
+}
+
+.token-number {
+  margin: 10px 0;
+
+  font-size: 60px;
+
+  font-weight: 900;
+
+  color: #2563eb;
+}
+
+.status {
+  display: inline-block;
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.status.WAITING {
+  background: #fef3c7;
+
+  color: #92400e;
+}
+
+.status.SERVING {
+  background: #dcfce7;
+
+  color: #166534;
+}
+
+.status.COMPLETED {
+  background: #e0e7ff;
+
+  color: #3730a3;
+}
+
+.status.CANCELLED {
+  background: #fee2e2;
+
+  color: #991b1b;
+}
+
+.status.SKIPPED {
+  background: #f3e8ff;
+
+  color: #7e22ce;
+}
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card {
+  background: white;
+
+  border-radius: 16px;
+
+  border: 1px solid #e5e7eb;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 16px 20px;
+
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span {
+  color: #6b7280;
+}
+
+.info-row strong {
+  text-align: right;
+}
+
+/* =========================================================
+   DOCTOR DASHBOARD
+========================================================= */
+
+.doctor-selector {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+}
+
+.doctor-selector label {
+  font-weight: 700;
+
+  font-size: 14px;
+}
+
+.doctor-selector select {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 9px;
+
+  background: white;
+}
+
+.doctor-specialization,
+.doctor-clinic {
+  color: #6b7280;
+
+  margin-bottom: 5px;
+}
+
+.section-title {
+  margin: 30px 0 12px;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+
+  color: #6b7280;
+}
+
+/* =========================================================
+   CURRENT PATIENT
+========================================================= */
+
+.current-patient-card {
+  padding: 28px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  border: 1px solid #e5e7eb;
+
+  text-align: center;
+}
+
+.doctor-token {
+  font-size: 48px;
+
+  font-weight: 900;
+
+  color: #2563eb;
+}
+
+.patient-name {
+  margin: 8px 0 12px;
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+.serving-badge {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  margin-bottom: 20px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  color: #166534;
+
+  font-weight: 800;
+
+  font-size: 12px;
+}
+
+.current-patient-card button {
+  margin: 5px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+        repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.stat-card {
+  padding: 20px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.stat-card span {
+  display: block;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.stat-card strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 30px;
+}
+
+/* =========================================================
+   QUEUE
+========================================================= */
+
+.queue-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.queue-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 16px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+}
+
+.queue-token {
+  min-width: 55px;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  color: #2563eb;
+}
+
+.queue-info {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.queue-info span {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.empty-card,
+.empty-queue {
+  padding: 25px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  color: #6b7280;
+}
+
+.empty-title {
+  margin-bottom: 20px;
+
+  color: #4b5563;
+}
+
+.queue-title {
+  margin-top: 35px;
+}
+
+.skipped-item {
+  border-left: 4px solid #a855f7;
+}
+
+.completed-item {
+  border-left: 4px solid #22c55e;
+}
+
+.completed-badge {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   LIVE
+========================================================= */
+
+.auto-refresh {
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: #15803d;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .header {
+    padding: 15px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .header h1 {
+    text-align: center;
+  }
+
+  .switch {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .dashboard {
+    padding: 25px 15px 60px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .queue-item {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .queue-info {
+    min-width: 150px;
+  }
+
+  .auth-card {
+    padding: 25px 20px;
+  }
+
+  .token-number {
+    font-size: 48px;
+  }
+
+  .info-row {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .info-row strong {
+    text-align: left;
+  }
+}
