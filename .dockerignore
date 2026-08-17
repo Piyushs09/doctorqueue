@@ -1,0 +1,13 @@
+
+.gradle
+build
+.git
+.idea
+*.iml
+
+doctorqueue-frontend/node_modules
+doctorqueue-frontend/dist
+doctorqueue-frontend/.git
+
+.DS_Store
+
