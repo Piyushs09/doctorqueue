@@ -1,6 +1,7 @@
 package com.doctorqueue.doctorqueue.config;
 
 import com.doctorqueue.doctorqueue.security.JwtAuthenticationFilter;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -16,9 +17,7 @@ public class SecurityConfig {
 
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter) {
-
-        this.jwtAuthenticationFilter =
-                jwtAuthenticationFilter;
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
     @Bean
@@ -26,14 +25,17 @@ public class SecurityConfig {
             HttpSecurity http) throws Exception {
 
         return http
-
-                .csrf(csrf ->
-                        csrf.disable()
-                )
+                .csrf(csrf -> csrf.disable())
 
                 .cors(Customizer.withDefaults())
 
                 .authorizeHttpRequests(auth -> auth
+
+                        // Root
+                        .requestMatchers(
+                                "/",
+                                "/error"
+                        ).permitAll()
 
                         // Authentication
                         .requestMatchers(
@@ -55,9 +57,8 @@ public class SecurityConfig {
                                 "/api/queue/events"
                         ).permitAll()
 
-                        // Everything else
-                        .anyRequest()
-                        .authenticated()
+                        // Everything else requires JWT
+                        .anyRequest().authenticated()
                 )
 
                 .sessionManagement(session ->
